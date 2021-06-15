@@ -1,5 +1,17 @@
+import { useState } from "react";
+import data from "../src/data.json";
+import JobListing from "./components/JobListing";
+
 function App() {
-    return <div>hello</div>;
+    const [jobs, setJobs] = useState(data);
+
+    return (
+        <div>
+            {jobs.map(job => (
+                <JobListing job={job} />
+            ))}
+        </div>
+    );
 }
 
 export default App;
