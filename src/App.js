@@ -4,9 +4,11 @@ import JobListing from "./components/JobListing";
 
 function App() {
     const [jobs, setJobs] = useState(data);
-
+    const classes = {
+        main: "flex flex-col items-center gap-8",
+    };
     return (
-        <div>
+        <div className={classes.main}>
             {jobs.map(job => (
                 <JobListing job={job} />
             ))}
