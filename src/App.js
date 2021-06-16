@@ -23,9 +23,24 @@ function App() {
         });
         setJobs(filteredJobs);
     };
+    const handleRemove = filter => {
+        if (activeFilters.length === 1) {
+            setActiveFilters([]);
+            setJobs(data);
+        } else {
+            setActiveFilters(prevState =>
+                prevState.filter(item => item !== filter)
+            );
+        }
+    };
+    const clearFilters = () => {
+        setActiveFilters([]);
+        setJobs(data);
+    };
     const classes = {
-        main: "flex flex-col items-center gap-8 bg-header-desktop bg-cyan-verylight font-body text-base",
-        header: "h-40 w-full bg-cyan-default",
+        main: "bg-header-desktop bg-cyan-verylight font-body text-base",
+        header: "h-40 w-full bg-cyan-default flex flex-column justify-center items-end",
+        jobs: "flex flex-col items-center gap-8 pt-32",
     };
 
     useEffect(() => {
@@ -41,16 +56,25 @@ function App() {
                     backgroundRepeat: "no-repeat",
                     backgroundSize: "cover",
                 }}
-            ></header>
-            <Filters activeFilters={activeFilters} />
-            {jobs.map(job => (
-                <JobListing
-                    job={job}
-                    filterJobs={filterJobs}
-                    setActiveFilters={setActiveFilters}
-                    activeFilters={activeFilters}
-                />
-            ))}
+            >
+                {activeFilters.length !== 0 && (
+                    <Filters
+                        activeFilters={activeFilters}
+                        handleRemove={handleRemove}
+                        clearFilters={clearFilters}
+                    />
+                )}
+            </header>
+            <div className={classes.jobs}>
+                {jobs.map(job => (
+                    <JobListing
+                        job={job}
+                        filterJobs={filterJobs}
+                        setActiveFilters={setActiveFilters}
+                        activeFilters={activeFilters}
+                    />
+                ))}
+            </div>
         </div>
     );
 }
