@@ -4,6 +4,19 @@ import JobListing from "./components/JobListing";
 
 function App() {
     const [jobs, setJobs] = useState(data);
+    let filters = [];
+    data.forEach(job => {
+        const tags = [...job.languages, ...job.tools];
+        tags.forEach(tag => {
+            if (!filters.includes(tag)) {
+                filters.push(tag);
+            }
+        });
+    });
+    const [activeFilters, setActiveFilters] = useState([]);
+    const filterJobs = terms => {
+        console.log(terms);
+    };
     const classes = {
         main: "flex flex-col items-center gap-8 bg-header-desktop bg-cyan-verylight font-body text-base",
         header: "h-40 w-full bg-cyan-default",
@@ -20,7 +33,12 @@ function App() {
                 }}
             ></header>
             {jobs.map(job => (
-                <JobListing job={job} />
+                <JobListing
+                    job={job}
+                    filterJobs={filterJobs}
+                    setActiveFilters={setActiveFilters}
+                    activeFilters={activeFilters}
+                />
             ))}
         </div>
     );

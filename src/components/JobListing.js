@@ -1,7 +1,11 @@
 import React, { useState } from "react";
 import photosnap from "../images/photosnap.svg";
 
-const JobListing = ({ job }) => {
+const JobListing = ({ job, filterJobs, setActiveFilters, activeFilters }) => {
+    const handleClick = tag => {
+        setActiveFilters(prevState => [...prevState, tag]);
+        filterJobs(activeFilters);
+    };
     let image;
     const {
         id,
@@ -61,7 +65,14 @@ const JobListing = ({ job }) => {
             </div>
             <ul className={classes.tags}>
                 {tags.map(tag => (
-                    <li className={classes.tag}>{tag}</li>
+                    <li>
+                        <button
+                            className={classes.tag}
+                            onClick={() => handleClick(tag)}
+                        >
+                            {tag}
+                        </button>
+                    </li>
                 ))}
             </ul>
         </div>
