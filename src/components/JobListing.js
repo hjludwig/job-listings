@@ -1,14 +1,14 @@
-import React, { useState } from "react";
-import photosnap from "../images/photosnap.svg";
+import React, { useEffect, useState } from "react";
 
 const JobListing = ({ job, filterJobs, setActiveFilters, activeFilters }) => {
     const handleClick = tag => {
+        if (activeFilters.includes(tag)) {
+            return;
+        }
         setActiveFilters(prevState => [...prevState, tag]);
-        filterJobs(activeFilters);
+        console.log(activeFilters);
     };
-    let image;
     const {
-        id,
         company,
         logo,
         featured,
@@ -37,6 +37,7 @@ const JobListing = ({ job, filterJobs, setActiveFilters, activeFilters }) => {
         featured:
             "bg-cyan-verydark text-white rounded-full px-2 pt-1.5 pb-0.5 text-xs uppercase font-normal",
     };
+
     return (
         <div className={classes.wrapper}>
             <div className={classes.info}>
