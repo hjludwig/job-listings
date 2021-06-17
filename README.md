@@ -29,8 +29,8 @@ Users should be able to:
 
 ### Links
 
--   Solution URL: [Add solution URL here](https://your-solution-url.com)
--   Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+-   Solution URL: [https://www.frontendmentor.io/solutions/solution-using-react-and-tailwind-GUqoeViIA](https://www.frontendmentor.io/solutions/solution-using-react-and-tailwind-GUqoeViIA)
+-   Live Site URL: [hjludwig-job-listing.netlify.app](hjludwig-job-listing.netlify.app)
 
 ## My process
 
