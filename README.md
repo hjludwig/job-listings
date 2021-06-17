@@ -30,7 +30,7 @@ Users should be able to:
 ### Links
 
 -   Solution URL: [https://www.frontendmentor.io/solutions/solution-using-react-and-tailwind-GUqoeViIA](https://www.frontendmentor.io/solutions/solution-using-react-and-tailwind-GUqoeViIA)
--   Live Site URL: [hjludwig-job-listing.netlify.app](hjludwig-job-listing.netlify.app)
+-   Live Site URL: [https://hjludwig-job-listing.netlify.app/](https://hjludwig-job-listing.netlify.app/)
 
 ## My process
 
