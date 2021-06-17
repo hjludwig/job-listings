@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 
-const JobListing = ({ job, filterJobs, setActiveFilters, activeFilters }) => {
+const JobListing = ({ job, setActiveFilters, activeFilters }) => {
     const handleClick = tag => {
         if (activeFilters.includes(tag)) {
             return;
