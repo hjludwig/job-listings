@@ -13,13 +13,8 @@ function App() {
         }
 
         const filteredJobs = data.filter(job => {
-            const filters = [
-                ...job.languages,
-                ...job.tools,
-                job.role,
-                job.level,
-            ];
-            return terms.every(item => filters.includes(item));
+            const tags = [...job.languages, ...job.tools, job.role, job.level];
+            return terms.every(term => tags.includes(term));
         });
         setJobs(filteredJobs);
     };
@@ -40,7 +35,7 @@ function App() {
     const classes = {
         main: "bg-header-desktop bg-cyan-verylight font-body text-base",
         header: "h-40 w-full bg-cyan-default flex flex-column justify-center items-end",
-        jobs: "flex flex-col items-center gap-8 pt-32",
+        jobs: "flex flex-col items-center gap-10 lg:gap-8 pt-32",
     };
 
     useEffect(() => {

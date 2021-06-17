@@ -24,21 +24,26 @@ const JobListing = ({ job, filterJobs, setActiveFilters, activeFilters }) => {
     const tags = [level, role, ...tools, ...languages];
     const classes = {
         wrapper:
-            "w-10/12 max-w-6xl flex justify-between items-center p-9 rounded bg-white shadow-cyan",
-        info: "flex items-center gap-6",
-        image: "",
-        details: "flex gap-4 text-gray-400",
-        tags: "flex gap-4",
-        name: "flex items-center text-sm font-bold text-cyan-default",
-        position: "text-cyan-verydark text-lg font-bold pt-2 pb-1",
+            "w-10/12 max-w-6xl flex flex-col lg:flex-row justify-between item-start lg:items-center gap-4 p-6 lg:p-9 rounded bg-white shadow-cyan",
+        info: "flex flex-col lg:flex-row items-start lg:items-center border-b lg:border-0 gap-6 pb-4 lg:pb-0",
+        image: "w-12 lg:w-auto absolute lg:static transform -translate-y-12 lg:translate-y-0",
+        details: "flex gap-2 lg:gap-4 text-sm lg:text-base text-gray-400",
+        tags: "flex gap-4 flex-wrap",
+        name: "flex items-center text-sm font-bold text-cyan-default pt-4",
+        position: "text-cyan-verydark text-base lg:text-lg font-bold pt-2 pb-1",
         tag: "bg-cyan-light hover:text-white hover:bg-cyan-default text-cyan-default px-2 pt-2 pb-1 rounded text-sm font-bold",
         new: "bg-cyan-default text-white rounded-full px-2 pt-1.5 pb-0.5 text-xs uppercase font-normal ml-4 mr-2",
-        featured:
+        featuredFlag:
             "bg-cyan-verydark text-white rounded-full px-2 pt-1.5 pb-0.5 text-xs uppercase font-normal",
+        featuredJob: "border-l-4 border-cyan-default pl-5 lg:pl-8",
     };
 
     return (
-        <div className={classes.wrapper}>
+        <div
+            className={`${classes.wrapper} ${
+                featured ? classes.featuredJob : ""
+            }`}
+        >
             <div className={classes.info}>
                 <div className={classes.image}>
                     <img src={logo} alt={`${company} logo`} />
@@ -49,7 +54,9 @@ const JobListing = ({ job, filterJobs, setActiveFilters, activeFilters }) => {
                         <h2>{company}</h2>
                         {job.new && <span className={classes.new}>New!</span>}
                         {featured && (
-                            <span className={classes.featured}>Featured</span>
+                            <span className={classes.featuredFlag}>
+                                Featured
+                            </span>
                         )}
                     </div>
 

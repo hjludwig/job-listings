@@ -4,7 +4,7 @@ const Filters = ({ activeFilters, handleRemove, clearFilters }) => {
     const classes = {
         wrapper:
             "bg-white w-10/12 max-w-6xl p-8 flex items-center justify-between w-100 transform translate-y-1/2 rounded",
-        list: "flex gap-4",
+        list: "flex gap-4 flex-wrap",
         filterItem:
             "bg-cyan-light text-cyan-default px-2 pt-2 pb-1 pr-10 rounded text-sm font-bold relative",
         removeButton:
